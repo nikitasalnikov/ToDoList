@@ -29,7 +29,7 @@ class ListViewItem extends StatelessWidget {
             color: AppColors.grey,
           ),
           padding: const EdgeInsets.all(16),
-          child: const ListViewItemContent(),
+          child: ListViewItemContent(index: i),
         );
       },
       itemCount: 7,

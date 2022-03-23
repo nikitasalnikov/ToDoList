@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:ver_1_2/ui/colors/colors.dart';
-import 'package:ver_1_2/ui/widgets/app_body/modal_window.dart';
+import 'package:ver_1_2/ui/models/title.dart';
 
-class ListViewItemContent extends StatelessWidget {
+class ListViewItemContent extends StatefulWidget {
+  final int index;
+
   const ListViewItemContent({
     Key? key,
+    required this.index,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-  
+  State<ListViewItemContent> createState() => _ListViewItemContentState();
+}
 
+class _ListViewItemContentState extends State<ListViewItemContent> {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
-          children: const [
+          children: [
             Text(
-              'Title',
-              style: TextStyle(
+              ToDoModel.items[widget.index].title.toString(),
+              style: const TextStyle(
                 color: AppColors.black,
                 fontWeight: FontWeight.w500,
                 fontSize: 16,
               ),
             ),
-            Text(
+            const Text(
               '07.03.2022',
               style: TextStyle(
                 color: AppColors.lightGrey,
@@ -35,9 +41,9 @@ class ListViewItemContent extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 16),
-        const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-          style: TextStyle(
+        Text(
+          ToDoModel.items[widget.index].text.toString(),
+          style: const TextStyle(
             color: AppColors.lightBlack,
             fontSize: 14,
           ),
@@ -47,7 +53,9 @@ class ListViewItemContent extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             IconButton(
-              onPressed: (){},
+              onPressed: () async {
+                await ToDoModel.modalWindow(context, widget.index);
+              },
               icon: const Icon(
                 Icons.edit_outlined,
                 color: AppColors.purple,

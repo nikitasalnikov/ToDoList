@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ver_1_2/ui/colors/colors.dart';
 import 'package:ver_1_2/ui/scaffold/typebox.dart';
 import 'package:ver_1_2/ui/widgets/app_body/app_body.dart';
-import 'package:ver_1_2/ui/widgets/app_body/modal_window.dart';
+
 
 class ScaffoldApp extends StatefulWidget {
   const ScaffoldApp({Key? key}) : super(key: key);
@@ -13,7 +13,6 @@ class ScaffoldApp extends StatefulWidget {
 
 class _ScaffoldAppState extends State<ScaffoldApp> {
   bool typing = true;
-
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class _ScaffoldAppState extends State<ScaffoldApp> {
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide.none,
           ),
-          onPressed: (){},
+          onPressed: () {},
           child: const Icon(
             Icons.edit_outlined,
             color: AppColors.purple,

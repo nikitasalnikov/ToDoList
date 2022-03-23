@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ver_1_2/ui/colors/colors.dart';
 import 'package:ver_1_2/ui/models/title.dart';
-import 'package:ver_1_2/ui/widgets/app_body/modal_window.dart';
 
 class GridViewItemContent extends StatefulWidget {
-  // final List<ToDoOptions> list;
   final int index;
 
   const GridViewItemContent({
     Key? key,
-    // required this.list,
     required this.index,
   }) : super(key: key);
 
@@ -20,15 +17,11 @@ class GridViewItemContent extends StatefulWidget {
 class _GridViewItemContentState extends State<GridViewItemContent> {
   @override
   void initState() {
-    // list = widget.list;
     super.initState();
   }
-  // TitleApp newTitle = TitleApp();
 
   @override
   Widget build(BuildContext context) {
-    print('grid');
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,9 +42,9 @@ class _GridViewItemContentState extends State<GridViewItemContent> {
           ),
         ),
         const SizedBox(height: 15),
-        const Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-          style: TextStyle(
+        Text(
+          ToDoModel.items[widget.index].text.toString(),
+          style: const TextStyle(
             color: AppColors.lightBlack,
             fontSize: 14,
           ),
@@ -63,7 +56,6 @@ class _GridViewItemContentState extends State<GridViewItemContent> {
             IconButton(
               onPressed: () async {
                 await ToDoModel.modalWindow(context, widget.index);
-                // setState(() {});
               },
               icon: const Icon(
                 Icons.edit_outlined,
@@ -71,9 +63,7 @@ class _GridViewItemContentState extends State<GridViewItemContent> {
               ),
             ),
             IconButton(
-              onPressed: () {
-                // print(newTitle.titleName);
-              },
+              onPressed: () {},
               icon: const Icon(
                 Icons.delete_outline,
                 color: AppColors.red,

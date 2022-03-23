@@ -19,7 +19,7 @@ class AnimSwitch extends StatelessWidget {
       duration: const Duration(
         milliseconds: 200,
       ),
-      child: isChanged ?  GridViewItem() : const ListViewItem(),
+      child: isChanged ? const GridViewItem() : const ListViewItem(),
     );
   }
 }

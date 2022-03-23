@@ -3,21 +3,54 @@ import 'package:ver_1_2/ui/widgets/app_body/modal_window.dart';
 
 class ToDoModel {
   static List<ToDoOptions> items = [
-    ToDoOptions(title: 'Title Test'),
-    ToDoOptions(title: 'Title Test1'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
-    ToDoOptions(title: 'Title Test2'),
+    ToDoOptions(
+        title: 'Title Test',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test1',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
+    ToDoOptions(
+        title: 'Title Test2',
+        text:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'),
   ];
 
-  static void changeItem(int index, {required String title}) {
-    if (items.length > index) {
-      items[index].title = title;
+  static changeItem(int index, {required String title, required String text}) {
+    for (var i = 0; i < items.length; i++) {
+      if (items.length > i) {
+        items[i].title = title;
+        items[i].text = text;
+      }
     }
   }
 
@@ -40,5 +73,5 @@ class ToDoOptions {
   String? date;
   String? text;
 
-  ToDoOptions({required this.title});
+  ToDoOptions({required this.title, required this.text});
 }

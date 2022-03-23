@@ -20,14 +20,14 @@ class ModalWindow extends StatefulWidget {
 
 class _ModalWindowState extends State<ModalWindow> {
   final titleController = TextEditingController();
+  final textController = TextEditingController();
 
   @override
   void dispose() {
     titleController.dispose();
+    textController.dispose();
     super.dispose();
   }
-
-  // TitleApp newTitle = TitleApp();
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +36,6 @@ class _ModalWindowState extends State<ModalWindow> {
         mainAxisSize: MainAxisSize.min,
         children: [
           TextFormField(
-            // onSaved: (newValue) =>
-            //     newTitle.titleName = titleController.text = newValue!,
             controller: titleController,
             decoration: const InputDecoration(
               fillColor: AppColors.lightPurple,
@@ -56,6 +54,7 @@ class _ModalWindowState extends State<ModalWindow> {
           ),
           const SizedBox(height: 16),
           TextFormField(
+            controller: textController,
             decoration: const InputDecoration(
               fillColor: AppColors.lightPurple,
               filled: true,
@@ -92,11 +91,15 @@ class _ModalWindowState extends State<ModalWindow> {
               const SizedBox(width: 30),
               TextButton(
                 onPressed: () {
-                  ToDoModel.changeItem(
-                    0,
-                    title: titleController.value.text,
-                  );
-                  
+                  setState(() {
+                    Navigator.pushNamed(
+                      context,
+                      '/',
+                    );
+                    ToDoModel.changeItem(widget.i,
+                        title: titleController.value.text,
+                        text: textController.value.text);
+                  });
                 },
                 child: Text(
                   widget.modalBtn.toUpperCase(),
